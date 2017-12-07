@@ -1,0 +1,35 @@
+<div class="row parks-container container-fluid" ng-controller="trailController as trailCtrl">
+	<div class="loading js-loading-message" ng-show="trailCtrl.isLoading">
+		<p>Loading Records...</p>
+	</div>
+	<div class="parks">
+		<ul class="trails">
+			<li ng-repeat="trail in trailsCtrl.trailList">
+				<div class="row">
+					<div class="col-md-8 col-sm-8">
+						<h2 class="park-name">{{trail.NAME}}</h2>
+					</div>
+					<div 
+						class="col-md-4 col-sm-4"
+						ng-class="{{trail.HC_ENDORSEMENT ? 'health-coalition' : '' }}"></div>
+				</div>
+				<div class="row">
+					<div class="col-md-8 col-sm-8">
+						<strong>About this Site</strong>
+						<p class="park-desc">{{trail.DESC}}</p><!-- There is a convert links in here-->
+						<div class="park-map"></div>
+					</div>
+					<div class="col-md-4 col-sm-4">
+						<ng include="'trail.contact.html'" />
+					</div>
+				</div>
+				<div class="row">
+					<div class="park-trails col-md-12">
+						<ul class="nav nav-tabs park-trails-nav"></ul>
+						<div class="trail-tabs tab-content"></div>
+					</div>
+				</div>
+			</li>
+		</ul>
+	</div>
+</div>

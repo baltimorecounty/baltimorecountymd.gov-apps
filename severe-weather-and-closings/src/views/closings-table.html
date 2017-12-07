@@ -1,0 +1,26 @@
+<div 
+	class="closings-container"
+	ng-controller="severeWeatherAndClosings.closingsController as closings">
+	<p ng-show="closings.isLoading">Loading Agency and Program Closings...</p>
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th></th>
+				<th width="15%">Status</th>
+				<th>Agency/Program</th>
+				<th>Information</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr 
+				ng-repeat="closing in closings.list track by $index">
+					<td class="icon">
+						<bc-status-icon status="closing.status"></bc-status-icon>
+					</td>
+					<td>{{closing.status}}</td>
+					<td ng-bind-html="closing.agency"></td>
+					<td>{{closing.info}}</td>
+			</tr>
+		</tbody>
+	</table>
+</div>

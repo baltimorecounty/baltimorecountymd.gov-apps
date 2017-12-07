@@ -1,0 +1,62 @@
+<ul class='trails'>
+	{{#.}}
+		{{#attributes}}
+			{{#NAME}}
+				<li id='parkid{{ID}}-{{OBJECTID}}' data-park-id='{{ID}}' data-object-id='{{OBJECTID}}' class='park'>
+					<div class='row'>
+						<div class='col-md-8 col-sm-8'>
+							<h2 class='park-name'>{{NAME}}</h2>
+						</div>
+						<div class='col-md-4 col-sm-4 health-coalition'>
+							{{#isEndorsed}}{{HC_ENDORSEMENT}}{{/isEndorsed}}
+						</div>
+					</div>
+					<div class='row'>
+						<div class='col-md-8 col-sm-8'>
+							<strong>About this Site</strong>
+							<p class='park-desc'>{{#convertLinks}}{{DESC_}}{{/convertLinks}}</p>
+							<div class='park-map'></div>
+						</div>
+						<div class='col-md-4 col-sm-4'>
+							<address class='park-address'>
+								<strong>Contact Information</strong>
+								<br /> 
+								{{CONTACT}}
+								<br> 
+								{{#ADDRESS}}
+									<span class='address-label'>Address:</span>
+									<a href='http://maps.google.com/maps?daddr={{Lat}},{{Long}}' title='Get Directions to {{NAME}}'>{{ADDRESS}}
+									</a>
+								{{/ADDRESS}} 
+								{{^ADDRESS}}
+									<a href='http://maps.google.com/maps?daddr={{LATLNG}}' title='Get Directions to {{NAME}}'>{{LATLNG}}
+									</a>
+								{{/ADDRESS}}
+								<br> 
+								{{#PHONE}}
+									<span class='address-label'>Phone:</span> 
+								{{PHONE}}
+									<br />
+								{{/PHONE}} 
+								{{#CONTACT_EMAIL}}
+									<span class='address-label'>Email:</span>
+									<a href='mailto:{{CONTACT_EMAIL}}' title='Email {{CONTACT}}'>
+								{{CONTACT_EMAIL}}
+									</a>
+								{{/CONTACT_EMAIL}}
+							</address>
+						</div>
+					</div>
+					<div class='row'>
+						<div class='park-trails col-md-12'>
+							// trailsTemplate += "
+							<h3 class='trails-header-hidden'>Trails</h3>
+							<ul class='nav nav-tabs park-trails-nav'></ul>
+							<div class='trail-tabs tab-content'></div>
+						</div>
+					</div>
+				</li>
+			{{/NAME}}
+		{{/attributes}}
+	{{/.}}
+</ul>
